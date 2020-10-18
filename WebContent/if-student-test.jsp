@@ -29,9 +29,16 @@ pageContext.setAttribute("myStudents", data);
 			<tr>
 				<td>${tempStudent.firstName}</td>
 				<td>${tempStudent.lastName}</td>
-				<td><c:if test = "${tempStudent.goldCustomer}"><p>Special Discount<p></c:if>
-				<c:if test = "${ not tempStudent.goldCustomer}"><p> - <p></c:if>
-				</td>
+				<td><c:choose>
+						<c:when test="${tempStudent.goldCustomer}">
+							<p>Special Discount
+							<p>
+						</c:when>
+						<c:otherwise>
+							<p>-
+							<p>
+						</c:otherwise>
+					</c:choose></td>
 			</tr>
 
 		</c:forEach>
